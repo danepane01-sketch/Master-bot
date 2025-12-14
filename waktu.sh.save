@@ -1,0 +1,35 @@
+#!/bin/bash
+TOTAL=60 # total waktu (detik) BAR_WIDTH=40 # lebar progress bar echo 
+"Menjalankan proses..." echo for ((i=0; i<=TOTAL; i++)); do
+  percent=$(( i * 100 / TOTAL )) filled=$(( i * BAR_WIDTH / TOTAL )) empty=$(( 
+  BAR_WIDTH - filled )) bar=$(printf "%${filled}s" | tr ' ' '█') space=$(printf 
+  "%${empty}s" | tr ' ' '░') printf "\r[%s%s] %3d%% | waktu: %02d detik" "$bar" 
+  "$space" "$percent" "$i" sleep 1
+done echo echo "✔ Selesai" chmod +x waktu.sh ./waktu.sh cat << 'EOF' > run_all.sh
+#!/bin/bash
+# ====== SETTING ======
+TOTAL=30 BAR_WIDTH=40 PROJECT_DIR="/workspaces/Master-bot"
+# ====== FUNGSI GRAFIS WAKTU ======
+progress() { for ((i=0; i<=TOTAL; i++)); do percent=$(( i * 100 / TOTAL )) 
+    filled=$(( i * BAR_WIDTH / TOTAL )) empty=$(( BAR_WIDTH - filled )) 
+    bar=$(printf "%${filled}s" | tr ' ' '█') space=$(printf "%${empty}s" | tr ' ' 
+    '░') printf "\r[%s%s] %3d%% | waktu: %02d dtk" "$bar" "$space" "$percent" 
+    "$i" sleep 1
+  done echo
+}
+# ====== MULAI ======
+clear echo "▶ Menyiapkan sistem..." progress cd "$PROJECT_DIR" || exit 1 chmod -R 
++x . echo echo "▶ Menjalankan project..." echo "--------------------------------"
+# ====== AUTO DETECT & RUN ======
+if [ -f package.json ]; then echo "Node.js terdeteksi" npm install && npm start 
+elif [ -f main.py ]; then
+  echo "Python main.py terdeteksi" python main.py elif ls *.py >/dev/null 2>&1; 
+then
+  echo "Python script terdeteksi" python *.py elif [ -f start.sh ]; then echo 
+  "Shell script terdeteksi" ./start.sh
+elif ls *.sh >/dev/null 2>&1; then echo "Shell scripts terdeteksi" bash *.sh else 
+  echo "Binary / custom file terdeteksi" for f in *; do
+    [ -x "$f" ] && echo "Menjalankan $f" && ./"$f" done fi echo echo "✔ Semua 
+proses selesai" EOF chmod +x run_all.sh
+./run_all.sh
+
