@@ -1,0 +1,267 @@
+{
+  "name": "NetSec 64-Bit V5",
+  "description": "OMNI-HYPER-MIND V5.0: 64-Bit Offline Network Simulator with 10 Autonomous Analysis Bots and 10 Rooting/Booting Bots.",
+  "requestFramePermissions": [],
+  "bots": [
+    {
+      "id": "bot-1",
+      "name": "Bot #1",
+      "provider": "ollama",
+      "providerConfig": {
+        "model": "llama3-70b"
+      },
+      "apiKeys": {
+        "groq": null,
+        "gemini": null,
+        "openai": null
+      }
+    },
+    {
+      "id": "bot-2",
+      "name": "Bot #2",
+      "provider": "ollama",
+      "providerConfig": {
+        "model": "llama3-70b"
+      },
+      "apiKeys": {
+        "groq": null,
+        "gemini": null,
+        "openai": null
+      }
+    },
+    {
+      "id": "bot-3",
+      "name": "Bot #3",
+      "provider": "ollama",
+      "providerConfig": {
+        "model": "llama3-70b"
+      },
+      "apiKeys": {
+        "groq": null,
+        "gemini": null,
+        "openai": null
+      }
+    },
+    {
+      "id": "bot-4",
+      "name": "Bot #4",
+      "provider": "ollama",
+      "providerConfig": {
+        "model": "llama3-70b"
+      },
+      "apiKeys": {
+        "groq": null,
+        "gemini": null,
+        "openai": null
+      }
+    },
+    {
+      "id": "bot-5",
+      "name": "Bot #5",
+      "provider": "ollama",
+      "providerConfig": {
+        "model": "llama3-70b"
+      },
+      "apiKeys": {
+        "groq": null,
+        "gemini": null,
+        "openai": null
+      }
+    },
+    {
+      "id": "bot-6",
+      "name": "Bot #6",
+      "provider": "ollama",
+      "providerConfig": {
+        "model": "llama3-70b"
+      },
+      "apiKeys": {
+        "groq": null,
+        "gemini": null,
+        "openai": null
+      }
+    },
+    {
+      "id": "bot-7",
+      "name": "Bot #7",
+      "provider": "ollama",
+      "providerConfig": {
+        "model": "llama3-70b"
+      },
+      "apiKeys": {
+        "groq": null,
+        "gemini": null,
+        "openai": null
+      }
+    },
+    {
+      "id": "bot-8",
+      "name": "Bot #8",
+      "provider": "ollama",
+      "providerConfig": {
+        "model": "llama3-70b"
+      },
+      "apiKeys": {
+        "groq": null,
+        "gemini": null,
+        "openai": null
+      }
+    },
+    {
+      "id": "bot-9",
+      "name": "Bot #9",
+      "provider": "ollama",
+      "providerConfig": {
+        "model": "llama3-70b"
+      },
+      "apiKeys": {
+        "groq": null,
+        "gemini": null,
+        "openai": null
+      }
+    },
+    {
+      "id": "bot-10",
+      "name": "Bot #10",
+      "provider": "ollama",
+      "providerConfig": {
+        "model": "llama3-70b"
+      },
+      "apiKeys": {
+        "groq": null,
+        "gemini": null,
+        "openai": null
+      }
+    },
+    {
+      "id": "bot-11",
+      "name": "Bot #11",
+      "provider": "ollama",
+      "providerConfig": {
+        "model": "llama3-70b"
+      },
+      "apiKeys": {
+        "groq": null,
+        "gemini": null,
+        "openai": null
+      }
+    },
+    {
+      "id": "bot-12",
+      "name": "Bot #12",
+      "provider": "ollama",
+      "providerConfig": {
+        "model": "llama3-70b"
+      },
+      "apiKeys": {
+        "groq": null,
+        "gemini": null,
+        "openai": null
+      }
+    },
+    {
+      "id": "bot-13",
+      "name": "Bot #13",
+      "provider": "ollama",
+      "providerConfig": {
+        "model": "llama3-70b"
+      },
+      "apiKeys": {
+        "groq": null,
+        "gemini": null,
+        "openai": null
+      }
+    },
+    {
+      "id": "bot-14",
+      "name": "Bot #14",
+      "provider": "ollama",
+      "providerConfig": {
+        "model": "llama3-70b"
+      },
+      "apiKeys": {
+        "groq": null,
+        "gemini": null,
+        "openai": null
+      }
+    },
+    {
+      "id": "bot-15",
+      "name": "Bot #15",
+      "provider": "ollama",
+      "providerConfig": {
+        "model": "llama3-70b"
+      },
+      "apiKeys": {
+        "groq": null,
+        "gemini": null,
+        "openai": null
+      }
+    },
+    {
+      "id": "bot-16",
+      "name": "Bot #16",
+      "provider": "ollama",
+      "providerConfig": {
+        "model": "llama3-70b"
+      },
+      "apiKeys": {
+        "groq": null,
+        "gemini": null,
+        "openai": null
+      }
+    },
+    {
+      "id": "bot-17",
+      "name": "Bot #17",
+      "provider": "ollama",
+      "providerConfig": {
+        "model": "llama3-70b"
+      },
+      "apiKeys": {
+        "groq": null,
+        "gemini": null,
+        "openai": null
+      }
+    },
+    {
+      "id": "bot-18",
+      "name": "Bot #18",
+      "provider": "ollama",
+      "providerConfig": {
+        "model": "llama3-70b"
+      },
+      "apiKeys": {
+        "groq": null,
+        "gemini": null,
+        "openai": null
+      }
+    },
+    {
+      "id": "bot-19",
+      "name": "Bot #19",
+      "provider": "ollama",
+      "providerConfig": {
+        "model": "llama3-70b"
+      },
+      "apiKeys": {
+        "groq": null,
+        "gemini": null,
+        "openai": null
+      }
+    },
+    {
+      "id": "bot-20",
+      "name": "Bot #20",
+      "provider": "ollama",
+      "providerConfig": {
+        "model": "llama3-70b"
+      },
+      "apiKeys": {
+        "groq": null,
+        "gemini": null,
+        "openai": null
+      }
+    }
+  ]
+}

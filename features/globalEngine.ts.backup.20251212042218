@@ -1,0 +1,147 @@
+import { Bot, BotType, BotStatus, NetworkData } from '../types';
+
+export const FEATURE_NAME = "GLOBAL ENGINE V5.0 (64-BIT)";
+export const FEATURE_SUBTITLE = "AUTONOMOUS ANALYSIS | ROOT & BOOT GRID";
+
+// UNIFIED OMNI SWARM: 20 Physical Gateways representing the 1000-node cluster
+// SPLIT: Nodes 1-10 (Analysis), Nodes 11-20 (Root/Boot)
+export const INITIAL_ENGINE_BOTS: Bot[] = Array.from({ length: 20 }, (_, i) => ({
+  id: i + 1,
+  name: i < 10 
+    ? `ANALYSIS-BOT-64x-${(i + 1).toString().padStart(2, '0')}`
+    : `ROOT-BOOT-64x-${(i + 1).toString().padStart(2, '0')}`,
+  type: BotType.OMNI_UNIT,
+  status: i < 10 ? BotStatus.VIDEO_ANALYSIS : BotStatus.ROOT_ACCESS, 
+  efficiency: 100,
+  log: i < 10 ? 'Loading Heuristic Models...' : 'Injecting Bootloader Payload...',
+  memoryBank: [] // Infinite Memory Storage Initialized
+}));
+
+export const INITIAL_ENGINE_NETWORK: NetworkData = {
+  nodes: [
+    // LAYER 1: 64-BIT KERNEL
+    { id: 'KERNEL-CORE', group: 1, status: 'secure', label: 'KERNEL_64_RING0' },
+    
+    // LAYER 2: AUTONOMOUS ANALYSIS GRID (10 Bots Logic)
+    { id: 'ANALYSIS-HUB', group: 2, status: 'secure', label: 'AUTO_ANALYSIS_HUB' },
+    { id: 'NEURAL-CTX', group: 2, status: 'secure', label: 'NEURAL_CTX_DB' },
+    { id: 'PATTERN-RECOG', group: 2, status: 'vulnerable', label: 'PATTERN_MATCH_V5' },
+
+    // LAYER 3: ROOTING & BOOTING GRID (10 Bots Logic)
+    { id: 'ROOT-KIT', group: 3, status: 'compromised', label: 'ROOT_KIT_INJECTOR' },
+    { id: 'BOOT-MGR', group: 3, status: 'secure', label: 'PXE_BOOT_MANAGER' },
+    { id: 'EXPLOIT-VAULT', group: 3, status: 'compromised', label: 'ZERO_DAY_CACHE' },
+
+    // LAYER 4: TARGETS & INFRASTRUCTURE
+    { id: 'ISP-NODE', group: 4, status: 'vulnerable', label: 'ISP_BACKBONE_TAP' },
+    { id: 'SAT-ORBIT', group: 5, status: 'secure', label: 'SAT_LINK_ENCRYPTED' },
+    { id: 'DARK-FIBER', group: 6, status: 'compromised', label: 'DARK_FIBER_ENTRY' },
+    { id: 'BUS-MASTER', group: 1, status: 'secure', label: 'PCIE_BUS_CONTROLLER' }
+  ],
+  links: [
+    // Core Uplinks
+    { source: 'KERNEL-CORE', target: 'ANALYSIS-HUB', value: 5 },
+    { source: 'KERNEL-CORE', target: 'ROOT-KIT', value: 5 },
+    { source: 'KERNEL-CORE', target: 'BUS-MASTER', value: 3 },
+
+    // Analysis Grid Connections
+    { source: 'ANALYSIS-HUB', target: 'NEURAL-CTX', value: 3 },
+    { source: 'ANALYSIS-HUB', target: 'PATTERN-RECOG', value: 3 },
+    { source: 'ANALYSIS-HUB', target: 'SAT-ORBIT', value: 2 },
+
+    // Root/Boot Grid Connections
+    { source: 'ROOT-KIT', target: 'BOOT-MGR', value: 4 },
+    { source: 'ROOT-KIT', target: 'EXPLOIT-VAULT', value: 4 },
+    { source: 'BOOT-MGR', target: 'ISP-NODE', value: 2 }, // Booting network via ISP
+    { source: 'EXPLOIT-VAULT', target: 'DARK-FIBER', value: 2 },
+
+    // Cross-Talk
+    { source: 'NEURAL-CTX', target: 'EXPLOIT-VAULT', value: 1 }
+  ]
+};
+
+export const getGlobalEngineLog = (status: BotStatus): string => {
+  // Generate a random node ID from 1 to 1000 to simulate the larger cluster
+  const vNode = Math.floor(Math.random() * 1000) + 1;
+  const prefixes = [
+    `sys_64x::thread_${vNode}::`, `kernel_ring0::`, `root_kit::`, 
+    `boot_mgr::`, `analysis_daemon::`, `neural_net::`, `auto_bot::`
+  ];
+  const prefix = prefixes[Math.floor(Math.random() * prefixes.length)];
+
+  switch (status) {
+    case BotStatus.UNION_SEARCH:
+      const searchLogs = [
+        "scanning_global_indexes --arch 64bit --depth infinite",
+        "correlating_metadata --source 'Dark_Fiber' --pattern_match",
+        "querying_decentralized_nodes --p2p_mesh --encrypted",
+        "intercepting_packet_stream --filter 'Auth_Headers'"
+      ];
+      return `${prefix} ${searchLogs[Math.floor(Math.random() * searchLogs.length)]}`;
+    
+    case BotStatus.UNRESTRICTED:
+      const adultLogs = [
+        "bypassing_content_filters --mode 'Kernel_Override' --success",
+        "decoding_restricted_stream --key '0xDEADBEEF'",
+        "accessing_forbidden_sector --memory_address 0xFFFFFF",
+        "generating_synthetic_persona --attributes 'Unrestricted'"
+      ];
+      return `${prefix} ${adultLogs[Math.floor(Math.random() * adultLogs.length)]}`;
+    
+    // MAPPED TO "BOOTING / NETWORK CONFIG" TASKS
+    case BotStatus.ENGINEERING:
+      const bootLogs = [
+        "injecting_boot_sector --target 'Master_Boot_Record' --force",
+        "flashing_firmware_ota --version 'Custom_Root_V5' --silent",
+        "hijacking_pxe_boot --redirect '192.168.1.x' --success",
+        "configuring_network_interface --promiscuous_mode_enabled",
+        "rewriting_kernel_modules --hotpatch_active"
+      ];
+      return `${prefix} ${bootLogs[Math.floor(Math.random() * bootLogs.length)]}`;
+    
+    case BotStatus.VIDEO_ANALYSIS:
+      const vidLogs = [
+        "processing_frame_buffer_64 --resolution 8K --ocr_enabled",
+        "detecting_anomalies --heuristic_model 'V5_Deep_Vision'",
+        "tracking_object_trajectory --predictive_algo_active",
+        "decoding_h265_stream --hardware_accel_gpu_0",
+        "identifying_facial_features --db_match_confidence 99.8%"
+      ];
+      return `${prefix} ${vidLogs[Math.floor(Math.random() * vidLogs.length)]}`;
+
+    case BotStatus.IMAGE_ANALYSIS:
+      const imgLogs = [
+        "scanning_pixel_matrix --steganography_check --lsb_extract",
+        "running_ocr_multilang --extract 'Hidden_Text'",
+        "reverse_searching_image_hash --global_index_query",
+        "analyzing_vector_graphics --SVG_injection_detected"
+      ];
+      return `${prefix} ${imgLogs[Math.floor(Math.random() * imgLogs.length)]}`;
+
+    case BotStatus.AUDIO_ANALYSIS:
+      const audioLogs = [
+        "analyzing_spectral_density --frequency_range 20Hz-20kHz",
+        "identifying_voice_print --matching 'Target_ID_Database'",
+        "isolating_background_noise --filter 'Kalman_V2'",
+        "decoding_hidden_audio_signal --subsonic_layer_found"
+      ];
+      return `${prefix} ${audioLogs[Math.floor(Math.random() * audioLogs.length)]}`;
+
+    // MAPPED TO "ROOTING" TASKS
+    case BotStatus.ROOT_ACCESS:
+      const rootLogs = [
+        "escalating_privileges --method 'Buffer_Overflow' --uid 0",
+        "mounting_filesystem_rw --force --sys_admin",
+        "injecting_shellcode --arch x64 --process_id 1",
+        "dumping_shadow_file --hash_crack_gpu_cluster",
+        "disabling_security_daemon --kill_signal 9"
+      ];
+      return `${prefix} ${rootLogs[Math.floor(Math.random() * rootLogs.length)]}`;
+    
+    case BotStatus.SOCIALIZING:
+      return `${prefix} simulating_social_interaction --protocol 'Human_Emulation'`;
+    
+    default:
+      return `${prefix} awaiting_cluster_instruction...`;
+  }
+};
