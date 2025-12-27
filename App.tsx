@@ -7,6 +7,7 @@ import HiveChat from './components/HiveChat';
 import { generateSimulationStep, generateHiveChat } from './services/geminiService';
 import { RefreshCw, Zap, Cpu, EyeOff, Layers, Settings, Search, Menu, X, Monitor, Activity, ShieldCheck, Server, Play, Image, Mic, BrainCircuit, Globe, Users, Link as LinkIcon, Database, Lock, Radio, Lightbulb, Video, FileAudio } from 'lucide-react';
 import { INITIAL_ENGINE_BOTS, INITIAL_ENGINE_NETWORK, getGlobalEngineLog, FEATURE_NAME, FEATURE_SUBTITLE } from './features/globalEngine';
+import { Analytics } from '@vercel/analytics/react';
 
 const App: React.FC = () => {
   const [bots, setBots] = useState<Bot[]>(INITIAL_ENGINE_BOTS);
@@ -292,6 +293,7 @@ const App: React.FC = () => {
         </div>
       </div>
 
+      <Analytics />
     </div>
   );
 };
