@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Analytics } from '@vercel/analytics/react';
 import { Bot, BotStatus, NetworkData, ChatMessage } from './types';
 import BotGrid from './components/BotGrid';
 import NetworkGraph from './components/NetworkGraph';
@@ -292,6 +293,7 @@ const App: React.FC = () => {
         </div>
       </div>
 
+      <Analytics />
     </div>
   );
 };
